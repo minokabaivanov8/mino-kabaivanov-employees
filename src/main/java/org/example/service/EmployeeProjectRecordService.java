@@ -1,2 +1,2 @@
-package org.example.service;public class EmployeeProjectRecordService {
+package org.example.service;public interface EmployeeProjectRecordService {
 }
