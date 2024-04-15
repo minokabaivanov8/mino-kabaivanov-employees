@@ -1,24 +1,29 @@
-package org.example.api;
+package org.example.controller;
 
-import org.example.model.EmployeeProjectRecord;
-import org.example.service.EmployeeProjectRecordService;
+import org.example.model.Employee;
+import org.example.service.EmployeeProjectRecordServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/employee-project")
-public class EmployeeProjectAPI {
+public class EmployeeProjectController {
+
     @Autowired
-    private EmployeeProjectRecordService employeeProjectRecordService;
+    private EmployeeProjectRecordServiceImpl employeeProjectRecordService;
+    @Autowired
+    private CSVController csvController;
 
     @GetMapping
-    public List<EmployeeProjectRecord> getAllEmployeeProjectRecords() throws IOException {
-        return employeeProjectRecordService.getAllEmployeeProjectRecords();
+    public List<Employee> allEmployeeProjectRecords(@RequestBody String csvBody) throws IOException {
+        return csvController.processCSV(csvBody);
+    }
+    @PostMapping
+    public List<String> getLongestTimeEmployeesWorkedTogether(@RequestBody String csvBody) throws IOException {
+        return employeeProjectRecordService.findLongestWorkingPair(csvController.processCSV(csvBody));
     }
 
 }

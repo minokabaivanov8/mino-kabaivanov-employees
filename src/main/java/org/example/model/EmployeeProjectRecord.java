@@ -1,17 +1,18 @@
 package org.example.model;
 
-import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 import java.util.Date;
 
-@AllArgsConstructor
+@Accessors(chain = true)
 @Getter
 @Setter
-public class EmployeeProject {
+@EqualsAndHashCode
+public class EmployeeProjectRecord {
     private Project project;
-    private Employee employee;
     private Date startDate;
     private Date endDate;
 }

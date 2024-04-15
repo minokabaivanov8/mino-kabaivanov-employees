@@ -1,24 +1,25 @@
 package org.example.model.csv;
 
-import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
-import java.util.Date;
-
-@AllArgsConstructor
+@Accessors(chain = true)
 @Getter
 @Setter
-public class EmployeeProjectRecord {
+@EqualsAndHashCode
+public class EmployeeProjectRecordCsv {
 
-    private Long id;
     private Long employeeId;
     private Long projectId;
     private String startDate;
     private String endDate;
 
+    public EmployeeProjectRecordCsv(long l, long l1, String s, String s1) {
+    }
 
+    public EmployeeProjectRecordCsv() {
 
-    public EmployeeProjectRecord(long employeeId, long projectId, Date startDate, Date endDate) {
     }
 }
