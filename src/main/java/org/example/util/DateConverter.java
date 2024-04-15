@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class DateConverter {
 
-    public static Date  convertStringToDate(String dateString) {
+    public static Date convertStringToDate(String dateString) {
         String[] formats = {"yyyy-MM-dd", "dd-MM-yy", "dd-MM-yyyy"};
 
         for (String format : formats) {
@@ -17,7 +17,6 @@ public class DateConverter {
             } catch (ParseException _) {
             }
         }
-
         // If none of the formats match, return null
         return null;
     }

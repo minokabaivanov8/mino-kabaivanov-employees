@@ -16,19 +16,19 @@ public class EmployeeProjectRecordServiceImpl implements EmployeeProjectRecordSe
 
     @Override
     public List<String> findLongestWorkingPair(List<Employee> employees) {
-        List <String> outputList = new ArrayList<>();
+        List<String> outputList = new ArrayList<>();
         int longestDurationTemp = 0;
 
         // Iterate through the list of employees
         for (int i = 0; i < employees.size(); i++) {
             Employee employee = employees.get(i);
-            List <EmployeeProjectRecord> employeeProjectRecords = employee.getEmployeeProjectRecords();
+            List<EmployeeProjectRecord> employeeProjectRecords = employee.getEmployeeProjectRecords();
 
             for (int j = i + 1; j < employees.size(); j++) {
                 Employee employeeToCompare = employees.get(j);
-                List <EmployeeProjectRecord> employeeProjectRecordsToCompare = employeeToCompare.getEmployeeProjectRecords();
+                List<EmployeeProjectRecord> employeeProjectRecordsToCompare = employeeToCompare.getEmployeeProjectRecords();
 
-                List <EmployeeProjectRecordPair> employeeProjectRecordsWithSameProject = employeeProjectRecords.stream()
+                List<EmployeeProjectRecordPair> employeeProjectRecordsWithSameProject = employeeProjectRecords.stream()
                         .flatMap(entry1 -> employeeProjectRecordsToCompare.stream()
                                 .filter(entry2 -> entry1.getProject().equals(entry2.getProject()))
                                 .map(entry2 -> new EmployeeProjectRecordPair(entry1, entry2)))
@@ -36,7 +36,7 @@ public class EmployeeProjectRecordServiceImpl implements EmployeeProjectRecordSe
 
                 int longestDuration = 0;
                 ListIterator<EmployeeProjectRecordPair> iterator = employeeProjectRecordsWithSameProject.listIterator();
-                while (iterator.hasNext()){
+                while (iterator.hasNext()) {
 
                     int overlapDuration = calculateOverlapDuration(iterator.next());
 

@@ -15,14 +15,6 @@ public class Project {
 
     private Long id;
 
-    public Project returnProjectIfEqual(Project project) {
-        if (this.equals(project)) {
-            return project;
-        }
-        else {
-            return null;
-        }
-    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

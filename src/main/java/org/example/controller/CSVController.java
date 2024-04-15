@@ -42,11 +42,11 @@ public class CSVController {
                     .map(this::toEmployeeProjectRecordCsv)
                     .toList();
 
-            EmployeeProjectRecordMapper employeeProjectRecordMapper =new EmployeeProjectRecordMapper();
+            EmployeeProjectRecordMapper employeeProjectRecordMapper = new EmployeeProjectRecordMapper();
 
             List<Employee> employees = new ArrayList<>();
 
-            employees=employeeProjectRecordMapper.toEmployeeList(employeeProjectRecordCsvs);
+            employees = employeeProjectRecordMapper.toEmployeeList(employeeProjectRecordCsvs);
 
 
             // Return the processed rows
@@ -56,6 +56,7 @@ public class CSVController {
             return null;
         }
     }
+
     private EmployeeProjectRecordCsv toEmployeeProjectRecordCsv(String csvBodyRow) {
         String[] parts = csvBodyRow.split(",");
 

@@ -16,10 +16,7 @@ public class EmployeeProjectRecordCsv {
     private String startDate;
     private String endDate;
 
-    public EmployeeProjectRecordCsv(long l, long l1, String s, String s1) {
-    }
 
     public EmployeeProjectRecordCsv() {
-
     }
 }
